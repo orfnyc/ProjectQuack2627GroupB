@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cm56fe0yqu0tl"]
+
+[ext_resource type="Script" uid="uid://dwlvajxi5eux6" path="res://Gyms/Tudor/assets/scenes/player.gd" id="1_s0rur"]
+
+[sub_resource type="Gradient" id="Gradient_q6m5p"]
+offsets = PackedFloat32Array(0.012048185, 1)
+colors = PackedColorArray(0.79607844, 0.047058824, 0.047058824, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cqmin"]
+gradient = SubResource("Gradient_q6m5p")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_anvdg"]
+
+[node name="Player" type="CharacterBody2D" unique_id=35293542]
+script = ExtResource("1_s0rur")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1041661996]
+position = Vector2(9.536743e-07, -4.7683716e-07)
+scale = Vector2(0.31249997, 0.3125)
+texture = SubResource("GradientTexture2D_cqmin")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1799616721]
+shape = SubResource("RectangleShape2D_anvdg")
