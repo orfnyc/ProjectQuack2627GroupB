@@ -21,3 +21,9 @@ texture = SubResource("GradientTexture2D_cqmin")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1799616721]
 shape = SubResource("RectangleShape2D_anvdg")
+
+[node name="Label" type="Label" parent="." unique_id=445173075]
+offset_left = -18.0
+offset_top = -33.0
+offset_right = 22.0
+offset_bottom = -10.0
