@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dojh5yl6rojwu"]
+
+[ext_resource type="Script" uid="uid://cv03vtsnwply6" path="res://Gyms/Tudor/assets/scenes/testnpc.gd" id="1_x7cxw"]
+
+[node name="NPC" type="Area2D" unique_id=599981816]
+script = ExtResource("1_x7cxw")
+
+[node name="Dialogue" type="Label" parent="." unique_id=1055809395]
+offset_left = -22.0
+offset_top = -75.0
+offset_right = 31.0
+offset_bottom = -52.0
+metadata/_edit_use_anchors_ = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

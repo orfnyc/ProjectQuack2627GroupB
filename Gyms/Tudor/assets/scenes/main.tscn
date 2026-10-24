@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://chgkuy5q6kf3u"]
 
 [ext_resource type="PackedScene" uid="uid://cm56fe0yqu0tl" path="res://Gyms/Tudor/assets/scenes/player.tscn" id="1_o7gkj"]
-[ext_resource type="Script" uid="uid://cv03vtsnwply6" path="res://Gyms/Tudor/assets/scenes/testnpc.gd" id="2_81p0b"]
+[ext_resource type="PackedScene" uid="uid://dojh5yl6rojwu" path="res://Gyms/Tudor/assets/scenes/npc.tscn" id="2_81p0b"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cqmin"]
 distance = -24.0
@@ -9,12 +9,12 @@ distance = -24.0
 [sub_resource type="Gradient" id="Gradient_81p0b"]
 colors = PackedColorArray(0, 0, 1, 1, 0, 0, 1, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_cqmin"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_81p0b"]
 gradient = SubResource("Gradient_81p0b")
 width = 16
 height = 16
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cqmin"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_acip0"]
 size = Vector2(64, 28)
 
 [node name="Node2D" type="Node2D" unique_id=1760891119]
@@ -34,23 +34,16 @@ polygon = PackedVector2Array(-12, -22, -80, -4, -82, -43)
 position = Vector2(0, -22)
 shape = SubResource("WorldBoundaryShape2D_cqmin")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1207329225]
+[node name="NPC" parent="." unique_id=599981816 instance=ExtResource("2_81p0b")]
 position = Vector2(57, -18)
-script = ExtResource("2_81p0b")
+hello_dialogue = "hello gradient man"
+sell_dialogue = "thanks for your purchase"
+sell_cost = 25
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=24486539]
+[node name="Sprite2D" type="Sprite2D" parent="NPC" unique_id=211480709]
 position = Vector2(7, 10)
-texture = SubResource("GradientTexture2D_cqmin")
+texture = SubResource("GradientTexture2D_81p0b")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1907052213]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC" unique_id=299081277]
 position = Vector2(7, 4)
-shape = SubResource("RectangleShape2D_cqmin")
-
-[node name="Label" type="Label" parent="Area2D" unique_id=1573942201]
-offset_left = -22.0
-offset_top = -75.0
-offset_right = 31.0
-offset_bottom = -52.0
-
-[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
-[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
+shape = SubResource("RectangleShape2D_acip0")

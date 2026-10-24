@@ -1,6 +1,9 @@
 extends Area2D
 
-@onready var label_test = $Label
+@onready var dialogue = $Dialogue
+@export var hello_dialogue: String = ""
+@export var sell_dialogue: String = ""
+@export var sell_cost: int = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -11,19 +14,19 @@ func _process(delta: float) -> void:
 	var bodies = get_overlapping_bodies()
 	for body in bodies:
 		if body is CharacterBody2D:
-			if body.mult >= 50:
+			if body.mult >= sell_cost:
 				if Input.is_action_just_pressed("ui_text_newline"):
-					label_test.text = "thanks for the mult"
-					body.mult -= 50
+					dialogue.text = sell_dialogue
+					body.mult -= sell_cost
 	pass
 
 func _on_body_entered(body: Node2D) -> void:
 	print("hi")
-	label_test.text = "hello gradient man"
+	dialogue.text = hello_dialogue
 	
 	pass # Replace with function body.
 
 func _on_body_exited(body: Node2D) -> void:
 	print("bye")
-	label_test.text = ""
+	dialogue.text = ""
 	pass # Replace with function body.
