@@ -17,6 +17,15 @@ height = 16
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_acip0"]
 size = Vector2(64, 28)
 
+[sub_resource type="Gradient" id="Gradient_acip0"]
+colors = PackedColorArray(0, 1, 0, 1, 0, 1, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cqmin"]
+gradient = SubResource("Gradient_acip0")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cqmin"]
+size = Vector2(53.5, 33.5)
+
 [node name="Node2D" type="Node2D" unique_id=1760891119]
 
 [node name="Player" parent="." unique_id=35293542 instance=ExtResource("1_o7gkj")]
@@ -35,15 +44,43 @@ position = Vector2(0, -22)
 shape = SubResource("WorldBoundaryShape2D_cqmin")
 
 [node name="NPC" parent="." unique_id=599981816 instance=ExtResource("2_81p0b")]
-position = Vector2(57, -18)
+position = Vector2(68, -8)
 hello_dialogue = "hello gradient man"
 sell_dialogue = "thanks for your purchase"
+reject_dialogue = "sorry you dont have enough mult"
 sell_cost = 25
 
 [node name="Sprite2D" type="Sprite2D" parent="NPC" unique_id=211480709]
-position = Vector2(7, 10)
 texture = SubResource("GradientTexture2D_81p0b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC" unique_id=299081277]
-position = Vector2(7, 4)
 shape = SubResource("RectangleShape2D_acip0")
+
+[node name="Dialogue" type="Label" parent="NPC" unique_id=278634862]
+offset_left = -21.0
+offset_top = -38.0
+offset_right = 32.0
+offset_bottom = -15.0
+metadata/_edit_use_anchors_ = true
+
+[node name="NPC2" parent="." unique_id=677988152 instance=ExtResource("2_81p0b")]
+hello_dialogue = "oh hey gradient man"
+sell_dialogue = "sell me this multiplier"
+reject_dialogue = "poor"
+sell_cost = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="NPC2" unique_id=1909961803]
+position = Vector2(175, -10.5)
+scale = Vector2(0.34375, 0.296875)
+texture = SubResource("GradientTexture2D_cqmin")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC2" unique_id=756262796]
+position = Vector2(177.75, -11.75)
+shape = SubResource("RectangleShape2D_cqmin")
+
+[node name="Dialogue" type="Label" parent="NPC2" unique_id=1463348126]
+offset_left = 151.0
+offset_top = -52.0
+offset_right = 204.0
+offset_bottom = -29.0
+metadata/_edit_use_anchors_ = true
