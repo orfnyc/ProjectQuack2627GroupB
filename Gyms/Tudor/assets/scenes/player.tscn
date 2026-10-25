@@ -12,9 +12,11 @@ gradient = SubResource("Gradient_q6m5p")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_anvdg"]
 
 [node name="Player" type="CharacterBody2D" unique_id=35293542]
+z_index = 100
 script = ExtResource("1_s0rur")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1041661996]
+z_index = 100
 position = Vector2(9.536743e-07, -4.7683716e-07)
 scale = Vector2(0.31249997, 0.3125)
 texture = SubResource("GradientTexture2D_cqmin")
