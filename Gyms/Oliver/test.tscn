@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dxqt1qvg6vler"]
+
+[ext_resource type="Script" uid="uid://b75mxuboop8di" path="res://Gyms/Oliver/HelloWorld.gd" id="1_8vw15"]
+
+[node name="Test" type="Node2D" unique_id=830000714]
+script = ExtResource("1_8vw15")
