@@ -29,3 +29,9 @@ offset_left = -18.0
 offset_top = -33.0
 offset_right = 22.0
 offset_bottom = -10.0
+
+[node name="RightRayCast" type="RayCast2D" parent="." unique_id=2139155663]
+target_position = Vector2(16.1, 0)
+
+[node name="LeftRayCast" type="RayCast2D" parent="." unique_id=1617569209]
+target_position = Vector2(-16.1, 0)
