@@ -246,7 +246,6 @@ sources/0 = SubResource("TileSetAtlasSource_gvfpr")
 position = Vector2(0, -49)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1838145760]
-position = Vector2(2, -99)
 zoom = Vector2(2, 2)
 limit_bottom = 48
 
