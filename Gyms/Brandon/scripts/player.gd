@@ -33,7 +33,7 @@ func _physics_process(delta: float) -> void:
 		if mult != int(mult): # only happens if they're not equal so it doesn't set a value to itself and spend processing power
 			mult = int(mult) # when landing, round multiplier
 #
-	var direction := Input.get_axis("move_left", "move_right") # -1 if pressing left, 1 if pressing right, 0 if neither
+	var direction := Input.get_axis("left", "right") # -1 if pressing left, 1 if pressing right, 0 if neither
 	if direction == 0: # not pressing directional inputs
 		if is_on_floor(): # if player is on the floor
 			if velocity.x > 0:
@@ -46,7 +46,7 @@ func _physics_process(delta: float) -> void:
 			elif velocity.x < 0:
 				velocity.x = min(0, velocity.x + (AIR_DECCELERATIVE_CONSTANT)) # same for air deccelerative constant
 
-	if Input.is_action_just_pressed("jump") and (is_on_floor() or is_on_wall()): # if player presses the jump button
+	if Input.is_action_just_pressed("up") and (is_on_floor() or is_on_wall()): # if player presses the jump button
 		velocity.y = JUMP_VELOCITY # increases y velocity by jump velocity
 		if is_on_wall():
 			velocity.y *= WALL_JUMP_STRENGTH.y
