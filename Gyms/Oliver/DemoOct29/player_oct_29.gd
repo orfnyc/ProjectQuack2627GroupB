@@ -15,14 +15,14 @@ func _physics_process(delta: float) -> void:
 	# Apply Gravity
 	velocity.y += GRAVITY * delta
 	if is_on_wall(): 
-		if Input.is_action_pressed("left_test") or Input.is_action_pressed("right_test"):
+		if Input.is_action_pressed("left") or Input.is_action_pressed("right"):
 			velocity.y = min(velocity.y, WALL_SLIDE)
 	
-	if Input.is_action_pressed("left_test"):
+	if Input.is_action_pressed("left"):
 		velocity.x -= WALK_ACCELERATION * delta
-	if Input.is_action_pressed("right_test"):
+	if Input.is_action_pressed("right"):
 		velocity.x += WALK_ACCELERATION * delta
-	if is_on_floor() and not (Input.is_action_pressed("left_test") or Input.is_action_pressed("right_test")):
+	if is_on_floor() and not (Input.is_action_pressed("left") or Input.is_action_pressed("right")):
 		if velocity.x > 0:
 			velocity.x -= WALK_DECCELERATION * delta
 			velocity.x = max(0, velocity.x)
@@ -31,11 +31,11 @@ func _physics_process(delta: float) -> void:
 			velocity.x = min(0, velocity.x)
 			
 	# Jump
-	if is_on_floor() and Input.is_action_just_pressed("up_test"):
+	if is_on_floor() and Input.is_action_just_pressed("up"):
 		velocity.y -= JUMP_IMPULSE
 		
 	# Wall Jump
-	if is_on_wall_only() and Input.is_action_just_pressed("up_test"):
+	if is_on_wall_only() and Input.is_action_just_pressed("up"):
 		velocity.x += get_wall_normal().x * JUMP_IMPULSE
 		velocity.y = -JUMP_IMPULSE
 	
