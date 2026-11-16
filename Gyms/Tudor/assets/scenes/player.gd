@@ -27,6 +27,7 @@ var mult = 0
 @onready var mult_label : Label = $Label
 
 func _physics_process(delta: float) -> void:
+	var old_mult = mult
 	
 	if is_on_wall() and velocity.y > 0: # when on a wall, fall slower (wall sliding)
 		current_gravity *= 0.1
@@ -82,4 +83,5 @@ func _physics_process(delta: float) -> void:
 			
 	
 	mult_label.text = str(int(mult))
+	action_completed.emit([3, 0, mult - old_mult])
 	move_and_slide()

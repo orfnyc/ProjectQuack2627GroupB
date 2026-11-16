@@ -14,6 +14,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	#if Engine.get_frames_drawn() % 144 > 142 or Engine.get_frames_drawn() % 144 < 2:
+		#print(quests)
 	pass
 
 
@@ -22,3 +24,22 @@ func _on_npc_quest_released(quest: Variant) -> void:
 		quests.append(quest)
 	print(quests)
 	#pass # Replace with function body.
+
+
+func _on_player_action_completed(action: Variant) -> void:
+	for quest in quests:
+		for task in quest:
+			var tasks_finished = 0
+			var taskmaster_id : int = quest[quest.size() - 1]
+			
+			if typeof(task) != TYPE_INT:
+				if task[0] == action[0]: # if same type of task
+					if task[1] == action[1]: # if same type of requirement
+						task[2] -= action[2]
+					if task[2] <= 0:
+						tasks_finished += 1
+			if tasks_finished == quest.size() - 1:
+				var taskmaster = instance_from_id(taskmaster_id)
+				taskmaster.quest_completed()
+		
+	pass # Replace with function body.
