@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://chgkuy5q6kf3u"]
 
+[ext_resource type="Script" uid="uid://cl7f354wke5l0" path="res://Gyms/Tudor/assets/scenes/main.gd" id="1_3pp55"]
 [ext_resource type="PackedScene" uid="uid://cm56fe0yqu0tl" path="res://Gyms/Tudor/assets/scenes/player.tscn" id="1_o7gkj"]
 [ext_resource type="PackedScene" uid="uid://dojh5yl6rojwu" path="res://Gyms/Tudor/assets/scenes/npc.tscn" id="2_81p0b"]
 [ext_resource type="Texture2D" uid="uid://ck1ckyf47yp7r" path="res://icon.svg" id="3_acip0"]
@@ -241,6 +242,7 @@ sources/0 = SubResource("TileSetAtlasSource_gvfpr")
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p3trt"]
 
 [node name="Node2D" type="Node2D" unique_id=1760891119]
+script = ExtResource("1_3pp55")
 
 [node name="Player" parent="." unique_id=35293542 instance=ExtResource("1_o7gkj")]
 position = Vector2(0, -49)
@@ -261,6 +263,7 @@ hello_dialogue = "hello gradient man"
 sell_dialogue = "thanks for your purchase"
 reject_dialogue = "sorry you dont have enough mult"
 sell_cost = 25
+quests = Array[Array]([[3, 0, 30]])
 
 [node name="Sprite2D" type="Sprite2D" parent="NPCs/NPC" unique_id=211480709]
 texture = SubResource("GradientTexture2D_81p0b")
@@ -280,6 +283,7 @@ hello_dialogue = "oh hey gradient man"
 sell_dialogue = "sell me this multiplier"
 reject_dialogue = "poor"
 sell_cost = 1
+quests = Array[Array]([[3, 0, 30]])
 
 [node name="Sprite2D" type="Sprite2D" parent="NPCs/NPC2" unique_id=1909961803]
 position = Vector2(175, -10.5)
@@ -311,3 +315,5 @@ tile_set = SubResource("TileSet_cqmin")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=2137043816]
 position = Vector2(-2, 75)
 shape = SubResource("WorldBoundaryShape2D_p3trt")
+
+[connection signal="quest_released" from="NPCs/NPC" to="." method="_on_npc_quest_released"]

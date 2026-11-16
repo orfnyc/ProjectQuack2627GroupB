@@ -1,5 +1,13 @@
 extends CharacterBody2D
 
+@export var EXP_SPEED : float = 450.0
+@export var EXP_JUMP_VELOCITY : float = -400.0
+@export var EXP_ACCELERATION : float = 0.9
+@export var EXP_AIR_DECCELERATIVE_CONSTANT : float = 0.01
+@export var EXP_FLOOR_DECCELERATIVE_CONSTANT_MULTIPLIER : float = 0.05
+@export var EXP_MAX_SPEED_MULTIPLIER : float = 1.5
+@export var EXP_WALL_JUMP_STRENGTH : Vector2 = Vector2(0.75, 0.9)
+
 
 const SPEED : float = 450.0
 const JUMP_VELOCITY : float = -400.0
@@ -11,7 +19,9 @@ const ACCELERATION : float = SPEED * 0.9
 const AIR_DECCELERATIVE_CONSTANT : float = SPEED * 0.01
 const FLOOR_DECCELERATIVE_CONSTANT : float = SPEED * 0.05
 const MAX_SPEED : float = SPEED * 1.5
-const WALL_JUMP_STRENGTH := Vector2(0.75, 0.9)
+const WALL_JUMP_STRENGTH : Vector2 = Vector2(0.75, 0.9)
+
+signal action_completed(action)
 
 var mult = 0
 @onready var mult_label : Label = $Label
@@ -56,7 +66,6 @@ func _physics_process(delta: float) -> void:
 		#
 			#
 	if direction != 0: # if player is holding a directional key
-		print(velocity.x)
 		if ((is_on_wall() and direction == get_wall_normal().x) or not is_on_wall()): # if the player is moving off of a wall or not on a wall
 			var friction = 0
 			
