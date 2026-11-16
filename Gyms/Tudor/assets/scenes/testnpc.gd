@@ -17,6 +17,7 @@ func _ready() -> void:
 	for quest in quests:
 		quest.append(get_instance_id())
 		initial_quests += 1
+	print(quests)
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -24,6 +25,7 @@ func _process(delta: float) -> void:
 	for body in bodies:
 		if body is CharacterBody2D:
 			if quests.size() == initial_quests - quests_completed:
+				# CHECK IF IS A GAIN TASK HERE (HOW THE FUCK ARE GAIN TASKS AND HAVE TASKS MEANT TO COMBINE? IDK ILL FIGURE IT OUT LATER)
 				quest_released.emit(quests[0])
 				quests.pop_front()
 			if Input.is_action_just_pressed("ui_text_newline"):

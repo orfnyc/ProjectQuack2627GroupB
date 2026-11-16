@@ -263,7 +263,7 @@ hello_dialogue = "hello gradient man"
 sell_dialogue = "thanks for your purchase"
 reject_dialogue = "sorry you dont have enough mult"
 sell_cost = 25
-quests = Array[Array]([[[3, 0, 30]]])
+quests = Array[Array]([[[3, 0, 30, 0]]])
 
 [node name="Sprite2D" type="Sprite2D" parent="NPCs/NPC" unique_id=211480709]
 texture = SubResource("GradientTexture2D_81p0b")
@@ -283,7 +283,7 @@ hello_dialogue = "oh hey gradient man"
 sell_dialogue = "sell me this multiplier"
 reject_dialogue = "poor"
 sell_cost = 1
-quests = Array[Array]([[[], 3, 0, 30]])
+quests = Array[Array]([[[3, 0, 30, 0]]])
 
 [node name="Sprite2D" type="Sprite2D" parent="NPCs/NPC2" unique_id=1909961803]
 position = Vector2(175, -10.5)
@@ -318,3 +318,4 @@ shape = SubResource("WorldBoundaryShape2D_p3trt")
 
 [connection signal="action_completed" from="Player" to="." method="_on_player_action_completed"]
 [connection signal="quest_released" from="NPCs/NPC" to="." method="_on_npc_quest_released"]
+[connection signal="quest_released" from="NPCs/NPC2" to="." method="_on_npc_quest_released"]
