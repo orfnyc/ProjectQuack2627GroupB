@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://c7kvj4boukq1"]
+
+[ext_resource type="Texture2D" uid="uid://5e5mm631tkl7" path="res://icon.svg" id="1_7c00s"]
+[ext_resource type="Script" uid="uid://df2xd8qvlsp3g" path="res://Gyms/Oliver/DemoOct29/player_oct_29.gd" id="1_gnge3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ms1oj"]
+size = Vector2(126, 126)
+
+[node name="PlayerOct29" type="CharacterBody2D" unique_id=1916908659]
+collision_layer = 3
+script = ExtResource("1_gnge3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=806734898]
+texture = ExtResource("1_7c00s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1096995472]
+shape = SubResource("RectangleShape2D_ms1oj")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=162335424]
+zoom = Vector2(2, 2)

@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dsna3hmbmotau"]
+
+[ext_resource type="Script" uid="uid://dhy2wpnxiau62" path="res://Gyms/Oliver/DemoOct29/item.gd" id="1_gev5s"]
+[ext_resource type="Texture2D" uid="uid://5e5mm631tkl7" path="res://icon.svg" id="2_8lxiy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ms1oj"]
+size = Vector2(128, 128)
+
+[node name="Item" type="Node2D" unique_id=1414406407]
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_gev5s")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1327444948]
+texture = ExtResource("2_8lxiy")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1805994021]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1288259320]
+shape = SubResource("RectangleShape2D_ms1oj")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b0indfay6pfrq"]
+
+[ext_resource type="Script" uid="uid://itqasqn7g1ly" path="res://Gyms/Oliver/Nov5/test_nov_5.gd" id="1_24q7k"]
+
+[node name="TestNov5" type="Node2D" unique_id=1845648383]
+script = ExtResource("1_24q7k")

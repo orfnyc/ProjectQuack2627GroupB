@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://j8d0baqo8sow"]
+
+[ext_resource type="Script" uid="uid://cvq17ccei3jen" path="res://Gyms/Oliver/DemoOct22/player_oct_22.gd" id="1_84q6h"]
+[ext_resource type="Texture2D" uid="uid://ck1ckyf47yp7r" path="res://icon.svg" id="1_f0b46"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1m5q4"]
+size = Vector2(132, 132)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ms1oj"]
+size = Vector2(128, 128)
+
+[node name="PlayerOct22" type="CharacterBody2D" unique_id=218206415]
+script = ExtResource("1_84q6h")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1410501811]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1851262818]
+modulate = Color(1, 0.043137256, 1, 1)
+shape = SubResource("RectangleShape2D_1m5q4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=600283115]
+visible = false
+shape = SubResource("RectangleShape2D_ms1oj")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1312547135]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=789444156]
+modulate = Color(1, 0.4144928, 0.15991816, 1)
+texture = ExtResource("1_f0b46")
+region_rect = Rect2(40, 0, 100, 0)
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

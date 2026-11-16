@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://3rqbswlhhqeb"]
+
+[ext_resource type="Script" uid="uid://u0rnhqx8q4rq" path="res://Gyms/Oliver/DemoOct29/object_factory.gd" id="1_aohwk"]
+
+[node name="ObjectFactory" type="Node" unique_id=449227587]
+script = ExtResource("1_aohwk")

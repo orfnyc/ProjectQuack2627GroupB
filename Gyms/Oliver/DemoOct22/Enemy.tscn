@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://8ltps7hv03po"]
+
+[ext_resource type="Script" uid="uid://c14qoh6bygvci" path="res://Gyms/Oliver/DemoOct22/enemy.gd" id="1_ewaxg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6o3bk"]
+radius = 25.0
+
+[node name="Enemy" type="CharacterBody2D" unique_id=888896308]
+modulate = Color(1, 0.08627451, 0.11764706, 1)
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_ewaxg")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=718597143]
+polygon = PackedVector2Array(0, 0, 0, 50, 50, 50, 50, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1741411889]
+position = Vector2(25, 25)
+shape = SubResource("CircleShape2D_6o3bk")
